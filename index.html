@@ -89,7 +89,13 @@
     <section class="hero">
       <div class="intro card">
         <h1>Robotics Engineer</h1>
-        <p class="subtitle">I’m a Robotics Engineer and graduate student at the University of Minnesota — Twin Cities (MnRI). My work spans perception, SLAM, and control in intelligent robotic systems. I integrate sensors and microcontrollers with robust software, and I enjoy the full build cycle: 3D CAD, rapid prototyping, and iteration. Outside robotics, I love playing chess and diving into new tools that push my systems thinking.</p>
+        <p class="subtitle">
+          I’m a Robotics Engineer and graduate student at the University of Minnesota — Twin Cities (MnRI).
+          My work spans perception, SLAM, and control in intelligent robotic systems.
+          I integrate sensors and microcontrollers with robust software, and I enjoy the full build cycle:
+          3D CAD, rapid prototyping, and iteration. Outside robotics, I love playing chess and diving into
+          new tools that push my systems thinking.
+        </p>
         <div class="badges">
           <span class="chip">ROS / ROS2</span>
           <span class="chip">OpenCV</span>
@@ -114,12 +120,69 @@
         <div style="margin-top:10px" class="subtitle">
           <div><strong>Currently:</strong> MS in Robotics, University of Minnesota — Twin Cities</div>
           <div><strong>Seeking:</strong> Roles where I can apply perception/SLAM/embedded skills, contribute to reliable autonomy, and keep learning fast.</div>
-          <div><strong>Contact:</strong> <a href="mailto:kushw022@umn.edu">kushw022@umn.edu</a> · <a href="tel:+19714886640">+1&nbsp;971‑488‑6640</a> · <a href="https://linkedin.com/in/kushwahaapurv" target="_blank">LinkedIn</a></div>
+          <div><strong>Contact:</strong> <a href="mailto:kushw022@umn.edu">kushw022@umn.edu</a> · <a href="tel:+19714886640">+1 971-488-6640</a> · <a href="https://linkedin.com/in/kushwahaapurv" target="_blank">LinkedIn</a></div>
         </div>
       </div>
     </section>
 
-    <!-- Other sections unchanged for brevity -->
+    <section id="projects">
+      <h2>Highlighted Projects</h2>
+      <div class="projects">
+        <article class="project">
+          <img class="thumb" src="assets/img/atlas_unet.jpg" alt="MRI lesion segmentation visualization" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/atlas_unet.jpg">View</button></div>
+          <div class="body">
+            <h3>Stroke Lesion Segmentation (ATLAS)</h3>
+            <p>U-Net with residuals and long-range features; improved Dice on ATLAS MRI dataset.</p>
+            <div class="meta">
+              <span class="pill">Python</span><span class="pill">PyTorch</span><span class="pill">U-Net</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="https://github.com/ApurvK032/Deep-Learning-CS590" target="_blank">Code →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img class="thumb" src="assets/img/rover_ros.jpg" alt="IITG rover with ROS stack" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/rover_ros.jpg">View</button></div>
+          <div class="body">
+            <h3>Prototype Mars Rover — Yuvaan IITG</h3>
+            <p>SLAM + LiDAR + OpenCV; IK for arm in ROS; multi-sensor fusion for field tasks.</p>
+            <div class="meta">
+              <span class="pill">ROS</span><span class="pill">SLAM</span><span class="pill">OpenCV</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="https://github.com/ApurvK032/Yuvaan" target="_blank">Repo →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img class="thumb" src="assets/img/smoke_detection.jpg" alt="Smoke detection segmentation overlay" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/smoke_detection.jpg">View</button></div>
+          <div class="body">
+            <h3>Real-time Smoke Detection</h3>
+            <p>U-Net-style model for pollution source detection; part of Swachh.io R&D deployments.</p>
+            <div class="meta">
+              <span class="pill">Computer Vision</span><span class="pill">Deployment</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <img class="thumb" src="assets/img/robowars.jpg" alt="Robowars competition bot" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/robowars.jpg">View</button></div>
+          <div class="body">
+            <h3>Robowars Platform</h3>
+            <p>Mechanical & strategy design; optimized actuation and weight for impact performance.</p>
+            <div class="meta">
+              <span class="pill">3D CAD</span><span class="pill">Dynamics</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <footer>
       <div class="note">© <span id="y"></span> Apurv Kushwaha · Built with vanilla HTML/CSS · Hosted on GitHub Pages</div>
