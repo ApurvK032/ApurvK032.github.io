@@ -7,54 +7,76 @@
   <meta name="description" content="Robotics & AI portfolio — projects, experience, contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0d0f; --card:#12151a; --muted:#9aa4b2; --text:#e9edf1; --accent:#7ee787; --chip:#1a1f27; --link:#8ab4f8;
-      --maxw:1100px; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --bg:#0b0d0f; --bg2:#0f1318; --card:#10151b; --card2:#0e1318; --muted:#98a2b3; --text:#e9edf1; --accent:#7ee787; --accent2:#2ea043; --link:#8ab4f8; --chip:#121a24;
+      --maxw:1120px; --radius:18px; --shadow:0 12px 35px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;scroll-behavior:smooth}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; background:linear-gradient(180deg,#0b0d0f, #0b0d0f 60%, #0f1216); color:var(--text)}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; background:radial-gradient(1200px 800px at 10% -10%, rgba(126,231,135,.12), transparent 60%), radial-gradient(1200px 800px at 110% 10%, rgba(138,180,248,.10), transparent 60%), linear-gradient(180deg,var(--bg), var(--bg) 60%, var(--bg2)); color:var(--text)}
     a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:24px}
-    header{position:sticky; top:0; backdrop-filter:saturate(120%) blur(8px); background:rgba(11,13,15,.6); border-bottom:1px solid #222; z-index:5}
+    header{position:sticky; top:0; backdrop-filter:saturate(130%) blur(10px); background:rgba(11,13,15,.55); border-bottom:1px solid #1c2430; z-index:20}
     nav{display:flex; align-items:center; justify-content:space-between; gap:12px}
     .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px}
     .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--accent); box-shadow:0 0 18px var(--accent)}
-    .navlinks a{margin-left:18px; font-weight:600; color:var(--muted)}
-    .navlinks a:hover{color:var(--text)}
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; padding:64px 0 28px}
-    .card{background:var(--card); border:1px solid #1e232b; border-radius:var(--radius); box-shadow:var(--shadow)}
-    .hero .intro{padding:28px}
-    h1{font-size:clamp(28px,4vw,46px); margin:0 0 10px}
+    .navlinks a{margin-left:18px; font-weight:700; color:#c7d1dc}
+    .navlinks a:hover{color:#fff}
+
+    .hero{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; padding:64px 0 28px}
+    .card{background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid #1b2532; border-radius:var(--radius); box-shadow:var(--shadow)}
+    .hero .intro{padding:32px; overflow:hidden; position:relative}
+    h1{font-size:clamp(30px,4vw,48px); margin:0 0 10px}
     .subtitle{color:var(--muted); font-size:clamp(14px,2vw,18px); line-height:1.6}
     .cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:12px; font-weight:700; border:1px solid #2a313b; background:#171b21; color:#e8eef6}
-    .btn.primary{background:linear-gradient(90deg,#2ea043,#3fb950); border-color:#2ea043; color:#05140a}
-    .btn:hover{filter:brightness(1.05)}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:11px 16px; border-radius:12px; font-weight:800; border:1px solid #2a313b; background:#121821; color:#e8eef6; transition:transform .08s ease}
+    .btn.primary{background:linear-gradient(90deg,#2ea043,#3fb950); border-color:#2ea043; color:#07150a}
+    .btn:hover{transform:translateY(-1px)}
     .badges{display:flex; gap:10px; margin-top:16px; flex-wrap:wrap}
-    .chip{background:var(--chip); color:#c7d1dc; border:1px solid #263042; padding:8px 12px; border-radius:999px; font-weight:600; font-size:13px}
-    .panel{padding:22px}
-    section{padding:22px 0}
+    .chip{background:var(--chip); color:#c7d1dc; border:1px solid #223042; padding:8px 12px; border-radius:999px; font-weight:700; font-size:13px}
+
+    .panel{padding:24px}
+    section{padding:28px 0}
     h2{margin:0 0 12px; font-size:24px}
-    .grid{display:grid; gap:16px}
-    .grid.cards{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .item{padding:18px; border:1px solid #1f2630; border-radius:14px; background:#12161c}
-    .item h3{margin:0 0 6px; font-size:18px}
-    .item p{margin:0; color:var(--muted); line-height:1.6}
-    .meta{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+
+    /* ==== Projects grid with images ==== */
+    .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px}
+    .project{position:relative; border:1px solid #1e2a38; border-radius:16px; overflow:hidden; background:#0e1318}
+    .project .thumb{aspect-ratio:16/10; width:100%; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.02)}
+    .project .body{padding:14px 14px 16px}
+    .project h3{margin:6px 0 6px; font-size:18px}
+    .project p{margin:0; color:var(--muted)}
+    .project .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .project .pill{font-family:"JetBrains Mono",monospace; border:1px dashed #263042; padding:4px 8px; border-radius:999px; font-size:12px; color:#c8d5e5}
+    .project .actions{display:flex; gap:10px; margin-top:12px}
+
+    .project:hover .overlay{opacity:1}
+    .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(9,12,15,.85)); opacity:0; transition:opacity .2s ease}
+    .overlay .view{position:absolute; right:12px; bottom:12px; padding:8px 10px; background:rgba(255,255,255,.06); backdrop-filter:blur(6px); border:1px solid #2a313b; border-radius:10px; font-weight:800}
+
+    /* Lightbox (native <dialog>) */
+    dialog{border:none; padding:0; background:transparent}
+    .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.85); display:grid; place-items:center}
+    .lightbox img{max-width:min(1100px,92vw); max-height:86vh; border-radius:14px; border:1px solid #2a3342}
+    .lightbox .close{position:fixed; top:16px; right:20px; background:#0e1318; border:1px solid #2b3442; color:#e9edf1; padding:8px 11px; border-radius:10px; font-weight:800}
+
+    /* Experience / skills */
     .timeline{display:grid; gap:12px}
-    .role{padding:16px; border:1px solid #1f2630; border-radius:14px; background:#10151b}
+    .role{padding:16px; border:1px solid #1f2630; border-radius:14px; background:#0e141a}
     .role .top{display:flex; justify-content:space-between; gap:8px; align-items:center}
     .role .org{font-weight:800}
     .role .when{color:var(--muted); font-weight:600}
-    .edu{display:grid; gap:10px}
+    .badges.block{margin-top:6px}
+
     footer{padding:40px 0 28px; color:#9aa4b2}
     .contact{display:flex; gap:12px; flex-wrap:wrap}
-    .contact a{border:1px solid #2a323e; background:#151a21; padding:10px 12px; border-radius:12px; font-weight:700}
+    .contact a{border:1px solid #2a323e; background:#121821; padding:10px 12px; border-radius:12px; font-weight:800}
     .note{font-size:13px; color:#8a94a3}
+
+    /* Responsive */
     @media (max-width:900px){ .hero{grid-template-columns:1fr} }
   </style>
 </head>
@@ -78,9 +100,9 @@
     <section class="hero">
       <div class="intro card">
         <h1>Robotics & AI Engineer</h1>
-        <p class="subtitle">Graduate student at the University of Minnesota (MnRI), with hands‑on experience in perception, SLAM, and embedded/IoT systems. I build reliable, human‑centered robotics systems—from sensor fusion and ROS to deep learning for vision.</p>
+        <p class="subtitle">Graduate student at the University of Minnesota (MnRI). I build reliable, human‑centered robotic systems—perception (OpenCV/PyTorch), SLAM/ROS, and embedded/IoT (ESP32, Rust).</p>
         <div class="badges">
-          <span class="chip">ROS / Gazebo</span>
+          <span class="chip">ROS / ROS2</span>
           <span class="chip">OpenCV</span>
           <span class="chip">PyTorch</span>
           <span class="chip">C++ / Python / Rust</span>
@@ -89,50 +111,82 @@
         <div class="cta">
           <a class="btn primary" href="#projects">Explore Projects</a>
           <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Download Résumé</a>
+          <a class="btn" href="https://github.com/ApurvK032" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
       <div class="panel card">
         <h2 style="margin-top:0">At a glance</h2>
-        <div class="grid">
-          <div><div class="note">Current</div><div><strong>MS Robotics</strong>, UMN (2025—)</div></div>
-          <div><div class="note">Focus</div><div><strong>Perception + Planning</strong>, Sim2Real</div></div>
-          <div><div class="note">Previously</div><div>Samaritan AI, Swachh.io (R&D), IIT Guwahati</div></div>
-          <div><div class="note">Find me</div><div><a href="mailto:apurvk008@gmail.com">apurvk008@gmail.com</a> · <a href="https://linkedin.com/in/kushwahaapurv" target="_blank">LinkedIn</a> · <a href="https://github.com/ApurvK032" target="_blank">GitHub</a></div></div>
+        <div class="badges block">
+          <span class="chip">Perception + Planning</span>
+          <span class="chip">Sim2Real</span>
+          <span class="chip">Sensor Fusion</span>
+        </div>
+        <div style="margin-top:10px" class="subtitle">
+          Currently: <strong>MS Robotics</strong>, UMN (2025—)
+          <br> Previously: Samaritan AI, Swachh.io (R&D), IIT Guwahati
+          <br> Contact: <a href="mailto:apurvk008@gmail.com">apurvk008@gmail.com</a> · <a href="https://linkedin.com/in/kushwahaapurv" target="_blank">LinkedIn</a>
         </div>
       </div>
     </section>
 
     <section id="projects">
       <h2>Highlighted Projects</h2>
-      <div class="grid cards">
-        <article class="item">
-          <h3>Stroke Lesion Segmentation (ATLAS)</h3>
-          <p>U‑Net based lesion segmentation with long‑range features and residual blocks; improved accuracy on ATLAS MRI data.</p>
-          <div class="meta">
-            <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">U‑Net</span>
-            <a href="https://github.com/ApurvK032/Deep-Learning-CS590" target="_blank">Code →</a>
+      <div class="projects">
+        <!-- Project 1 -->
+        <article class="project">
+          <img class="thumb" src="assets/img/atlas_unet.jpg" alt="MRI lesion segmentation visualization" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/atlas_unet.jpg">View</button></div>
+          <div class="body">
+            <h3>Stroke Lesion Segmentation (ATLAS)</h3>
+            <p>U‑Net with residuals and long‑range features; improved Dice on ATLAS MRI dataset.</p>
+            <div class="meta">
+              <span class="pill">Python</span><span class="pill">PyTorch</span><span class="pill">U‑Net</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="https://github.com/ApurvK032/Deep-Learning-CS590" target="_blank">Code →</a>
+            </div>
           </div>
         </article>
-        <article class="item">
-          <h3>Prototype Mars Rover — Yuvaan IITG</h3>
-          <p>Autonomy stack with SLAM, LiDAR, and OpenCV; IK for arm in ROS; soil analysis with multi‑sensor integration.</p>
-          <div class="meta">
-            <span class="chip">ROS</span><span class="chip">SLAM</span><span class="chip">OpenCV</span>
-            <a href="https://github.com/ApurvK032/Yuvaan" target="_blank">Repo →</a>
+
+        <!-- Project 2 -->
+        <article class="project">
+          <img class="thumb" src="assets/img/rover_ros.jpg" alt="IITG rover with ROS stack" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/rover_ros.jpg">View</button></div>
+          <div class="body">
+            <h3>Prototype Mars Rover — Yuvaan IITG</h3>
+            <p>SLAM + LiDAR + OpenCV; IK for arm in ROS; multi‑sensor fusion for field tasks.</p>
+            <div class="meta">
+              <span class="pill">ROS</span><span class="pill">SLAM</span><span class="pill">OpenCV</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="https://github.com/ApurvK032/Yuvaan" target="_blank">Repo →</a>
+            </div>
           </div>
         </article>
-        <article class="item">
-          <h3>Real‑time Smoke Detection</h3>
-          <p>U‑Net‑style system for identifying pollution sources & waste accumulation in the wild; deployed as part of Swachh.io R&D.</p>
-          <div class="meta">
-            <span class="chip">Computer Vision</span><span class="chip">Deployment</span>
+
+        <!-- Project 3 -->
+        <article class="project">
+          <img class="thumb" src="assets/img/smoke_detection.jpg" alt="Smoke detection segmentation overlay" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/smoke_detection.jpg">View</button></div>
+          <div class="body">
+            <h3>Real‑time Smoke Detection</h3>
+            <p>U‑Net‑style model for pollution source detection; part of Swachh.io R&D deployments.</p>
+            <div class="meta">
+              <span class="pill">Computer Vision</span><span class="pill">Deployment</span>
+            </div>
           </div>
         </article>
-        <article class="item">
-          <h3>Robowars Platform</h3>
-          <p>Led mechanical & strategy design for competition bot; optimized actuation & weight for performance under impact.</p>
-          <div class="meta">
-            <span class="chip">SolidWorks</span><span class="chip">Dynamics</span>
+
+        <!-- Project 4 -->
+        <article class="project">
+          <img class="thumb" src="assets/img/robowars.jpg" alt="Robowars competition bot" loading="lazy"/>
+          <div class="overlay"><button class="view" data-img="assets/img/robowars.jpg">View</button></div>
+          <div class="body">
+            <h3>Robowars Platform</h3>
+            <p>Mechanical & strategy design; optimized actuation and weight for impact performance.</p>
+            <div class="meta">
+              <span class="pill">SolidWorks</span><span class="pill">Dynamics</span>
+            </div>
           </div>
         </article>
       </div>
@@ -147,15 +201,11 @@
         </div>
         <div class="role">
           <div class="top"><div class="org">Swachh.io — R&D Engineer</div><div class="when">May 2024 — Nov 2024</div></div>
-          <p class="subtitle">Led prototypes end‑to‑end; built U‑Net smoke detection; managed interns; CFD/thermal studies for PV dust mitigation.</p>
+          <p class="subtitle">Led prototypes end‑to‑end; U‑Net smoke detection; CFD/thermal studies for PV dust mitigation; mentored interns.</p>
         </div>
         <div class="role">
           <div class="top"><div class="org">Swachh.io — Research & Simulations Intern</div><div class="when">May 2023 — Jul 2023</div></div>
-          <p class="subtitle">On‑vehicle air filtration for rolling stock; telemetry; FEA/CFD modeling for pollutant capture. Patent filing in process.</p>
-        </div>
-        <div class="role">
-          <div class="top"><div class="org">Engineering Intern</div><div class="when">May 2022 — Jul 2022</div></div>
-          <p class="subtitle">CAD design (Fusion 360/SolidWorks); contributed to $40K+ grant proposal to CAQM (GoI).</p>
+          <p class="subtitle">On‑vehicle air filtration; telemetry; FEA/CFD modeling for pollutant capture. Patent filing in process.</p>
         </div>
       </div>
     </section>
@@ -172,15 +222,13 @@
 
     <section id="education">
       <h2>Education</h2>
-      <div class="edu">
-        <div class="item">
-          <h3>University of Minnesota — MS Robotics (MnRI)</h3>
-          <p class="subtitle">2025 — Present · Coursework: CV (CSCI 5561), AI (CSCI 5511), Intelligent Robotic Systems (CSCI 5551)</p>
-        </div>
-        <div class="item">
-          <h3>IIT Guwahati — B.Tech, Engineering Physics</h3>
-          <p class="subtitle">2020 — 2024 · Robotics Club (Event Manager), IRDC/IRC Rover challenges</p>
-        </div>
+      <div class="role">
+        <div class="top"><div class="org">University of Minnesota — MS Robotics (MnRI)</div><div class="when">2025 — Present</div></div>
+        <p class="subtitle">Coursework: CV (CSCI 5561), AI (CSCI 5511), Intelligent Robotic Systems (CSCI 5551)</p>
+      </div>
+      <div class="role">
+        <div class="top"><div class="org">IIT Guwahati — B.Tech, Engineering Physics</div><div class="when">2020 — 2024</div></div>
+        <p class="subtitle">Robotics Club (Event Manager), IRDC/IRC Rover challenges</p>
       </div>
     </section>
 
@@ -200,8 +248,23 @@
     </footer>
   </main>
 
+  <!-- Lightbox dialog -->
+  <dialog id="dlg"><div class="lightbox" role="dialog" aria-modal="true">
+    <button class="close" id="close">Close ✕</button>
+    <img id="lb" alt="Project full view" />
+  </div></dialog>
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    // Image lightbox
+    const dlg = document.getElementById('dlg');
+    const lb = document.getElementById('lb');
+    const closeBtn = document.getElementById('close');
+    document.querySelectorAll('.view').forEach(btn=>{
+      btn.addEventListener('click',()=>{ lb.src = btn.dataset.img; dlg.showModal(); });
+    });
+    closeBtn.addEventListener('click',()=>dlg.close());
+    dlg.addEventListener('click', (e)=>{ if(e.target===dlg) dlg.close(); });
   </script>
 </body>
 </html>
