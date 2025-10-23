@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apurv Kushwaha — Portfolio</title>
-  <meta name="description" content="Robotics & AI portfolio — projects, experience, contact." />
+  <title>Apurv Kushwaha — Robotics Engineer</title>
+  <meta name="description" content="Robotics Engineer portfolio — projects, experience, contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -42,7 +42,6 @@
     section{padding:28px 0}
     h2{margin:0 0 12px; font-size:24px}
 
-    /* ==== Projects grid with images ==== */
     .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px}
     .project{position:relative; border:1px solid #1e2a38; border-radius:16px; overflow:hidden; background:#0e1318}
     .project .thumb{aspect-ratio:16/10; width:100%; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.02)}
@@ -57,13 +56,11 @@
     .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(9,12,15,.85)); opacity:0; transition:opacity .2s ease}
     .overlay .view{position:absolute; right:12px; bottom:12px; padding:8px 10px; background:rgba(255,255,255,.06); backdrop-filter:blur(6px); border:1px solid #2a313b; border-radius:10px; font-weight:800}
 
-    /* Lightbox (native <dialog>) */
     dialog{border:none; padding:0; background:transparent}
     .lightbox{position:fixed; inset:0; background:rgba(0,0,0,.85); display:grid; place-items:center}
     .lightbox img{max-width:min(1100px,92vw); max-height:86vh; border-radius:14px; border:1px solid #2a3342}
     .lightbox .close{position:fixed; top:16px; right:20px; background:#0e1318; border:1px solid #2b3442; color:#e9edf1; padding:8px 11px; border-radius:10px; font-weight:800}
 
-    /* Experience / skills */
     .timeline{display:grid; gap:12px}
     .role{padding:16px; border:1px solid #1f2630; border-radius:14px; background:#0e141a}
     .role .top{display:flex; justify-content:space-between; gap:8px; align-items:center}
@@ -76,7 +73,6 @@
     .contact a{border:1px solid #2a323e; background:#121821; padding:10px 12px; border-radius:12px; font-weight:800}
     .note{font-size:13px; color:#8a94a3}
 
-    /* Responsive */
     @media (max-width:900px){ .hero{grid-template-columns:1fr} }
   </style>
 </head>
@@ -100,13 +96,21 @@
     <section class="hero">
       <div class="intro card">
         <h1>Robotics Engineer</h1>
+<<<<<<< HEAD
         <p class="subtitle">I’m a Robotics Engineer and graduate student at the University of Minnesota – Twin Cities (MnRI). My work spans perception, SLAM, and control in intelligent robotic systems, with experience integrating sensors, microcontrollers, and mechanical design. I enjoy bringing hardware and AI together through 3D modeling, rapid prototyping, and full-stack robot development. Outside robotics, I’m passionate about chess, learning new tools, and exploring innovative tech projects.</p>
+=======
+        <p class="subtitle">I’m a Robotics Engineer and graduate student at the University of Minnesota — Twin Cities (MnRI). My work spans perception, SLAM, and control in intelligent robotic systems. I integrate sensors and microcontrollers with robust software, and I enjoy the full build cycle: 3D CAD, rapid prototyping, and iteration. Outside robotics, I love playing chess and diving into new tools that push my systems thinking.</p>
+>>>>>>> b2b198f (Update content (bio, At a glance, contact, resume link))
         <div class="badges">
           <span class="chip">ROS / ROS2</span>
           <span class="chip">OpenCV / SLAM</span>
           <span class="chip">PyTorch</span>
           <span class="chip">C++ / Python</span>
+<<<<<<< HEAD
           <span class="chip">ESP32 / IoT</span>
+=======
+          <span class="chip">Microcontrollers</span>
+>>>>>>> b2b198f (Update content (bio, At a glance, contact, resume link))
           <span class="chip">3D Design & Prototyping</span>
         </div>
         <div class="cta">
@@ -118,13 +122,19 @@
       <div class="panel card">
         <h2 style="margin-top:0">At a glance</h2>
         <div class="badges block">
-          <span class="chip">Perception + Planning</span>
-          <span class="chip">Sim2Real</span>
-          <span class="chip">Sensor Fusion</span>
+          <span class="chip">Perception</span>
+          <span class="chip">SLAM</span>
+          <span class="chip">Embedded Systems</span>
         </div>
         <div style="margin-top:10px" class="subtitle">
+<<<<<<< HEAD
           Currently: <strong>MS Robotics</strong>, University of Minnesota-Twin Cities
           <br> Contact: <a href="mailto:kushw022@umn.edu">kushw022@umn.edu</a> · <a href="https://linkedin.com/in/kushwahaapurv" target="_blank">LinkedIn</a>
+=======
+          <div><strong>Currently:</strong> MS in Robotics, University of Minnesota — Twin Cities</div>
+          <div><strong>Seeking:</strong> Roles where I can apply perception/SLAM/embedded skills, contribute to reliable autonomy, and keep learning fast.</div>
+          <div><strong>Contact:</strong> <a href="mailto:kushw022@umn.edu">kushw022@umn.edu</a> · <a href="tel:+19714886640">+1&nbsp;971‑488‑6640</a> · <a href="https://linkedin.com/in/kushwahaapurv" target="_blank">LinkedIn</a></div>
+>>>>>>> b2b198f (Update content (bio, At a glance, contact, resume link))
         </div>
       </div>
     </section>
@@ -132,7 +142,6 @@
     <section id="projects">
       <h2>Highlighted Projects</h2>
       <div class="projects">
-        <!-- Project 1 -->
         <article class="project">
           <img class="thumb" src="assets/img/atlas_unet.jpg" alt="MRI lesion segmentation visualization" loading="lazy"/>
           <div class="overlay"><button class="view" data-img="assets/img/atlas_unet.jpg">View</button></div>
@@ -148,7 +157,6 @@
           </div>
         </article>
 
-        <!-- Project 2 -->
         <article class="project">
           <img class="thumb" src="assets/img/rover_ros.jpg" alt="IITG rover with ROS stack" loading="lazy"/>
           <div class="overlay"><button class="view" data-img="assets/img/rover_ros.jpg">View</button></div>
@@ -164,7 +172,6 @@
           </div>
         </article>
 
-        <!-- Project 3 -->
         <article class="project">
           <img class="thumb" src="assets/img/smoke_detection.jpg" alt="Smoke detection segmentation overlay" loading="lazy"/>
           <div class="overlay"><button class="view" data-img="assets/img/smoke_detection.jpg">View</button></div>
@@ -177,7 +184,6 @@
           </div>
         </article>
 
-        <!-- Project 4 -->
         <article class="project">
           <img class="thumb" src="assets/img/robowars.jpg" alt="Robowars competition bot" loading="lazy"/>
           <div class="overlay"><button class="view" data-img="assets/img/robowars.jpg">View</button></div>
@@ -185,7 +191,7 @@
             <h3>Robowars Platform</h3>
             <p>Mechanical & strategy design; optimized actuation and weight for impact performance.</p>
             <div class="meta">
-              <span class="pill">SolidWorks</span><span class="pill">Dynamics</span>
+              <span class="pill">3D CAD</span><span class="pill">Dynamics</span>
             </div>
           </div>
         </article>
@@ -197,7 +203,7 @@
       <div class="timeline">
         <div class="role">
           <div class="top"><div class="org">Samaritan AI — Robotics Engineer</div><div class="when">Nov 2024 — Present</div></div>
-          <p class="subtitle">Urine‑monitoring device: sensor integration, IoT, Rust; seamless real‑time transfer to servers & mobile apps.</p>
+          <p class="subtitle">Urine‑monitoring device: sensor integration, IoT; seamless real‑time transfer to servers & mobile apps.</p>
         </div>
         <div class="role">
           <div class="top"><div class="org">Swachh.io — R&D Engineer</div><div class="when">May 2024 — Nov 2024</div></div>
@@ -213,10 +219,11 @@
     <section id="skills">
       <h2>Skills</h2>
       <div class="badges">
-        <span class="chip">Python</span><span class="chip">C/C++</span><span class="chip">Rust</span>
+        <span class="chip">Python</span><span class="chip">C/C++</span>
         <span class="chip">ROS / ROS2</span><span class="chip">OpenCV</span><span class="chip">PyTorch</span>
-        <span class="chip">ESP32 / Microcontrollers</span><span class="chip">Sensor Integration</span>
-        <span class="chip">Linux</span><span class="chip">SolidWorks</span><span class="chip">ANSYS</span>
+        <span class="chip">Microcontrollers</span><span class="chip">Sensor Integration</span>
+        <span class="chip">3D Design & Prototyping</span>
+        <span class="chip">Linux</span>
       </div>
     </section>
 
@@ -236,11 +243,12 @@
       <h2>Contact</h2>
       <p class="subtitle">Open to research collaborations, internships, and interesting robotics problems.</p>
       <div class="contact">
-        <a href="mailto:apurvk008@gmail.com">Email</a>
+        <a href="mailto:kushw022@umn.edu">Email</a>
+        <a href="tel:+19714886640">Call</a>
         <a href="https://linkedin.com/in/kushwahaapurv" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/ApurvK032" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="note" style="margin-top:12px">Phone on request · Minneapolis, MN</p>
+      <p class="note" style="margin-top:12px">Minneapolis, MN • Phone intentionally shown (feel free to obfuscate if spam becomes an issue)</p>
     </section>
 
     <footer>
@@ -248,7 +256,6 @@
     </footer>
   </main>
 
-  <!-- Lightbox dialog -->
   <dialog id="dlg"><div class="lightbox" role="dialog" aria-modal="true">
     <button class="close" id="close">Close ✕</button>
     <img id="lb" alt="Project full view" />
@@ -256,7 +263,6 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-    // Image lightbox
     const dlg = document.getElementById('dlg');
     const lb = document.getElementById('lb');
     const closeBtn = document.getElementById('close');
