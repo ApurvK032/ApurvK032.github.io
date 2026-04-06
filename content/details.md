@@ -6,10 +6,10 @@ email: kushw022@umn.edu
 location: Minneapolis, MN
 github: https://github.com/ApurvK032
 linkedin: https://www.linkedin.com/in/kushwahaapurv/
-website: https://apurvk032.github.io/
+website: https://apurvkushwaha.com/
 siteTitle: Apurv Kushwaha | Robotics Portfolio
 siteDescription: Robotics portfolio for Apurv Kushwaha featuring embedded systems, perception, computer vision, autonomous robotics, and selected engineering projects.
-siteUrl: https://apurvk032.github.io/
+siteUrl: https://apurvkushwaha.com/
 resumeFile: /resume/Apurv_Kushwaha_Resume_2026.pdf
 resumeStatus: Resume PDF is available here for quick review.
 ogImage: /og-image.svg
@@ -61,5 +61,5 @@ Strong foundation in system integration, prototyping, cross-functional collabora
 
 - GitHub profile: [ApurvK032](https://github.com/ApurvK032)
 - LinkedIn: [kushwahaapurv](https://www.linkedin.com/in/kushwahaapurv/)
-- Portfolio listed on GitHub: [apurvk032.github.io](https://apurvk032.github.io/)
+- Portfolio listed on GitHub: [apurvkushwaha.com](https://apurvkushwaha.com/)
 - Additional public link: [Chess.com profile](https://www.chess.com/member/quixotix008)
