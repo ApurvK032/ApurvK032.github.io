@@ -6,10 +6,11 @@ import type { PortfolioFrontmatter } from "@/lib/content";
 
 const navItems = [
   { href: "#home", label: "Home" },
-  { href: "#education", label: "Education" },
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
+  { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
+  { href: "#experience", label: "Experience" },
+  { href: "#education", label: "Education" },
+  { href: "#skills", label: "Stack" },
   { href: "#contact", label: "Contact" }
 ];
 
@@ -64,29 +65,54 @@ function MoonIcon() {
   );
 }
 
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="menu-icon"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    >
+      {open ? (
+        <>
+          <path d="M6 6l12 12" />
+          <path d="M18 6 6 18" />
+        </>
+      ) : (
+        <>
+          <path d="M4 7.5h16" />
+          <path d="M4 12h16" />
+          <path d="M9 16.5h11" />
+        </>
+      )}
+    </svg>
+  );
+}
+
 export function SiteHeader({
   frontmatter
 }: {
   frontmatter: PortfolioFrontmatter;
 }) {
   const [activeHash, setActiveHash] = useState("#home");
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem("portfolio-theme");
     const preferredTheme =
-      savedTheme === "light" || savedTheme === "dark"
-        ? savedTheme
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
+      savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
 
     setTheme(preferredTheme);
     setMounted(true);
     applyTheme(preferredTheme);
 
-    const updateHash = () => {
+    const updateHeaderState = () => {
       const sections = navItems
         .map((item) => document.querySelector(item.href))
         .filter((element): element is HTMLElement => element instanceof HTMLElement);
@@ -97,17 +123,34 @@ export function SiteHeader({
         sections[0];
 
       setActiveHash(current ? `#${current.id}` : getCurrentHash());
+      setScrolled(window.scrollY > 24);
     };
 
-    updateHash();
-    window.addEventListener("hashchange", updateHash);
-    window.addEventListener("scroll", updateHash, { passive: true });
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    updateHeaderState();
+    window.addEventListener("hashchange", updateHeaderState);
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+    window.addEventListener("keydown", handleEscape);
 
     return () => {
-      window.removeEventListener("hashchange", updateHash);
-      window.removeEventListener("scroll", updateHash);
+      window.removeEventListener("hashchange", updateHeaderState);
+      window.removeEventListener("scroll", updateHeaderState);
+      window.removeEventListener("keydown", handleEscape);
     };
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", menuOpen);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+    };
+  }, [menuOpen]);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
@@ -116,15 +159,23 @@ export function SiteHeader({
     applyTheme(nextTheme);
   };
 
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
-    <header className="site-header">
+    <header className={scrolled ? "site-header is-scrolled" : "site-header"}>
       <div className="container shell-bar">
         <Link className="brand" href="/#home">
           <span className="brand-mark">{frontmatter.name.charAt(0)}</span>
-          <span>{frontmatter.name}</span>
+          <span className="brand-copy">
+            <strong>{frontmatter.name}</strong>
+            <span>{frontmatter.location}</span>
+          </span>
         </Link>
+
         <div className="header-actions">
-          <nav className="nav" aria-label="Primary navigation">
+          <nav className="nav nav-desktop" aria-label="Primary navigation">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -135,15 +186,58 @@ export function SiteHeader({
               </Link>
             ))}
           </nav>
-          <button
-            type="button"
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-          >
-            {mounted ? theme === "dark" ? <SunIcon /> : <MoonIcon /> : <MoonIcon />}
-          </button>
+
+          <div className="header-utilities">
+            <a className="header-cta" href={frontmatter.resumeFile}>
+              Resume
+            </a>
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {mounted ? theme === "dark" ? <SunIcon /> : <MoonIcon /> : <MoonIcon />}
+            </button>
+            <button
+              type="button"
+              className="menu-toggle"
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((value) => !value)}
+            >
+              <MenuIcon open={menuOpen} />
+            </button>
+          </div>
         </div>
+      </div>
+
+      <div className={menuOpen ? "mobile-panel is-open" : "mobile-panel"}>
+        <nav className="mobile-nav" aria-label="Mobile navigation">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={`/${item.href}`}
+              className={activeHash === item.href ? "mobile-link is-active" : "mobile-link"}
+              onClick={handleNavClick}
+            >
+              {item.label}
+            </Link>
+          ))}
+          <div className="mobile-actions">
+            <a className="button button-primary" href={frontmatter.resumeFile}>
+              Open Resume
+            </a>
+            <a
+              className="button button-secondary"
+              href={frontmatter.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </nav>
       </div>
     </header>
   );

@@ -5,28 +5,17 @@ export function SiteFooter() {
 
   return (
     <footer className="site-footer">
-      <div className="container footer-grid">
-        <div>
-          <p className="eyebrow">{frontmatter.name}</p>
-          <p>
-            Robotics engineer focused on perception, embedded systems, and
-            intelligent autonomous applications.
-          </p>
-        </div>
-        <div>
-          <p className="eyebrow">Quick Contact</p>
-          <ul className="link-list">
-            <li>
-              <a href={`mailto:${frontmatter.email}`}>{frontmatter.email}</a>
-            </li>
-            <li>{frontmatter.phone}</li>
-            <li>
-              <a href={frontmatter.github}>GitHub</a>
-            </li>
-            <li>
-              <a href={frontmatter.linkedin}>LinkedIn</a>
-            </li>
-          </ul>
+      <div className="container footer-shell">
+        <p>{frontmatter.name}</p>
+        <div className="footer-links">
+          <a href={frontmatter.github} target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href={frontmatter.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a href={`mailto:${frontmatter.email}`}>Email</a>
+          <a href="/#home">Top</a>
         </div>
       </div>
     </footer>
