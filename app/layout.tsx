@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter_Tight, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { getPortfolioData } from "@/lib/content";
@@ -57,6 +58,65 @@ export default function RootLayout({
           <SiteHeader frontmatter={frontmatter} />
           <main className="page-content">{children}</main>
         </div>
+        <Script id="scroll-reveal" strategy="afterInteractive">
+          {`
+            (() => {
+              const setupReveal = () => {
+                const elements = Array.from(document.querySelectorAll('.reveal'));
+
+                if (!elements.length) {
+                  return;
+                }
+
+                const revealAll = () => {
+                  elements.forEach((element) => element.classList.add('is-visible'));
+                };
+
+                if (
+                  window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+                  !('IntersectionObserver' in window)
+                ) {
+                  revealAll();
+                  return;
+                }
+
+                const observer = new IntersectionObserver(
+                  (entries) => {
+                    entries.forEach((entry) => {
+                      if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                      }
+                    });
+                  },
+                  {
+                    threshold: 0.12,
+                    rootMargin: '0px 0px -40px 0px'
+                  }
+                );
+
+                elements.forEach((element, index) => {
+                  const delay = element.style.getPropertyValue('--reveal-delay');
+
+                  if (!delay) {
+                    element.style.setProperty(
+                      '--reveal-delay',
+                      Math.min(index * 30, 180) + 'ms'
+                    );
+                  }
+
+                  observer.observe(element);
+                });
+              };
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', setupReveal, { once: true });
+              } else {
+                setupReveal();
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

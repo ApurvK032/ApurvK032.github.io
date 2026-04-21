@@ -13,7 +13,7 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
   return (
     <div
-      className={`reveal is-visible${className ? ` ${className}` : ""}`}
+      className={`reveal${className ? ` ${className}` : ""}`}
       style={style}
     >
       {children}
