@@ -106,7 +106,7 @@ function parseSections(markdownBody: string): PortfolioSection[] {
 
 export function getPortfolioData(): PortfolioData {
   const file = fs.readFileSync(detailsPath, "utf8");
-  const match = file.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  const match = file.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
 
   if (!match) {
     return {

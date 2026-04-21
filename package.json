@@ -9,7 +9,7 @@
     "prebuild": "npm run clean",
     "dev:fresh": "npm run clean && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "python -m http.server 3000 --directory out",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

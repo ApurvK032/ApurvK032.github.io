@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { getPortfolioData } from "@/lib/content";
 import type { ReactNode } from "react";
 
-const spaceGrotesk = Space_Grotesk({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  variable: "--font-space-grotesk"
+  variable: "--font-inter-tight"
 });
 
-const ibmPlexMono = IBM_Plex_Mono({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
-  variable: "--font-ibm-plex-mono"
+  variable: "--font-jetbrains-mono"
 });
 
 export function generateMetadata(): Metadata {
@@ -51,11 +51,11 @@ export default function RootLayout({
   const { frontmatter } = getPortfolioData();
 
   return (
-    <html lang="en" data-theme="dark" style={{ colorScheme: "dark" }}>
-      <body className={`${spaceGrotesk.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en">
+      <body className={`${interTight.variable} ${jetBrainsMono.variable}`}>
         <div className="page-wrap">
           <SiteHeader frontmatter={frontmatter} />
-          <main className="container page-content">{children}</main>
+          <main className="page-content">{children}</main>
         </div>
       </body>
     </html>
