@@ -163,15 +163,19 @@ export default function HomePage() {
       ]
     },
     {
-      title: "Application Search and Resume Tailoring Agent",
+      title: "Bayesian Belief-State Trading Agent",
       year: "2026",
       summary:
-        "Local-first workflow with 14 employer feeds, cross-source duplicate protection, freshness ranking, evidence-backed packets, tailored resumes, and review-before-submit form assistance.",
-      stack: ["Python", "SQLite", "Playwright", "OpenAI API", "LaTeX"],
+        "Course team research project using a 3-state Gaussian HMM and daily Bayesian filtering to drive risk-aware S&P 500 allocation, with baselines, ablations, and held-out validation.",
+      stack: ["Python", "hmmlearn", "pgmpy", "pandas", "Matplotlib"],
       links: [
         {
           label: "Code",
-          href: "https://github.com/ApurvK032/application-agent"
+          href: "https://github.com/ApurvK032/5512-Final-Stock-Trader"
+        },
+        {
+          label: "Report",
+          href: "https://github.com/ApurvK032/5512-Final-Stock-Trader/blob/main/belief_state_trader/reports/Final_Report.pdf"
         }
       ]
     },
