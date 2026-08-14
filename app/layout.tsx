@@ -34,7 +34,7 @@ export function generateMetadata(): Metadata {
           url: frontmatter.ogImage,
           width: 1200,
           height: 630,
-          alt: "Portfolio Open Graph placeholder"
+          alt: "Apurv Kushwaha robotics and product-development portfolio"
         }
       ]
     },
@@ -107,6 +107,13 @@ export default function RootLayout({
 
                   observer.observe(element);
                 });
+
+                // Keep the content readable if a browser delays observer
+                // callbacks during anchor jumps, backgrounding, or capture.
+                window.setTimeout(() => {
+                  revealAll();
+                  observer.disconnect();
+                }, 1800);
               };
 
               if (document.readyState === 'loading') {

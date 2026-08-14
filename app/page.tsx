@@ -124,27 +124,57 @@ export default function HomePage() {
   const facts: Fact[] = [
     {
       label: "Now",
-      value: "M.S. Robotics",
+      value: "Graduate Researcher",
+      detail: "University of Minnesota / Apr 2026-present"
+    },
+    {
+      label: "Degree",
+      value: "M.S. Robotics - 3.83/4.00",
       detail: "University of Minnesota / 2025-27"
     },
     {
-      label: "Previously",
+      label: "Foundation",
       value: "B.Tech Engineering Physics",
       detail: "IIT Guwahati / 2020-24"
     },
     {
-      label: "Last role",
-      value: "Lead Technical Engineer",
-      detail: "Samaritan AI / 2024-25"
-    },
-    {
-      label: "Based",
-      value: data.frontmatter.location,
-      detail: "Open to robotics, autonomy, and perception roles"
+      label: "Open to",
+      value: "Robotics / Perception / Embedded",
+      detail: `${data.frontmatter.location} / United States`
     }
   ];
 
   const featuredProjects: FeaturedProject[] = [
+    {
+      title: "Quest 3 Mixed-Reality Bowling Analysis",
+      year: "2026",
+      summary:
+        "Course team project combining Quest H.264 capture, YOLO-seeded SAM2 tracking, lane-space trajectory reconstruction, shot statistics, and mixed-reality replay.",
+      stack: ["Meta Quest 3", "Unity", "YOLO", "SAM2", "Python"],
+      links: [
+        {
+          label: "Code",
+          href: "https://github.com/ApurvK032/quest3-bowling-ball-tracking"
+        },
+        {
+          label: "Demo",
+          href: "https://drive.google.com/file/d/1ChvX2wGKDNvMor3lKa0ZUYFAq08_IGWq/view?usp=sharing"
+        }
+      ]
+    },
+    {
+      title: "Application Search and Resume Tailoring Agent",
+      year: "2026",
+      summary:
+        "Local-first workflow with 14 employer feeds, cross-source duplicate protection, freshness ranking, evidence-backed packets, tailored resumes, and review-before-submit form assistance.",
+      stack: ["Python", "SQLite", "Playwright", "OpenAI API", "LaTeX"],
+      links: [
+        {
+          label: "Code",
+          href: "https://github.com/ApurvK032/application-agent"
+        }
+      ]
+    },
     {
       title: "Semantic-Aware Image Retargeting",
       year: "2025",
@@ -174,23 +204,22 @@ export default function HomePage() {
           href: "https://github.com/ApurvK032/Autonomous-Car-Parking-Bot"
         }
       ]
-    },
-    {
-      title: "Warehouse Pick-and-Drop Optimization",
-      year: "2025",
-      summary:
-        "Warehouse routing and task-sequencing system built around A* search, planning constraints, and optimization strategies for better route efficiency.",
-      stack: ["A*", "Hill Climbing", "Simulated Annealing", "Optimization"],
-      links: [
-        {
-          label: "Code",
-          href: "https://github.com/ApurvK032/WarehouseBot-Pick-and-Drop-Optimization"
-        }
-      ]
     }
   ];
 
   const experienceItems: TimelineItem[] = [
+    {
+      title: "Graduate Researcher",
+      org: "University of Minnesota, Twin Cities",
+      meta: "Apr 2026 - Present",
+      location: "Minneapolis, MN",
+      summary:
+        "Developing human-in-the-loop robot manipulation systems that combine Quest 3 teleoperation with CAD/RGB-D tracking for a Trossen WidowX AI manipulator.",
+      bullets: [
+        "Integrated task-frame calibration, articulated-joint tracking, inverse kinematics, and safety-gated MuJoCo validation.",
+        "Validated Quest-based hardware control at 90 Hz with zero inverse-kinematics failures in a 51-second run."
+      ]
+    },
     {
       title: "Lead Technical Engineer",
       org: "Samaritan AI",
@@ -222,17 +251,17 @@ export default function HomePage() {
   const skillGroups: SkillGroup[] = [
     {
       title: "Robotics",
-      items: ["ROS 2", "Gazebo", "Nav2", "SLAM", "Path Planning", "Systems Integration"]
+      items: ["ROS 2", "Gazebo", "Nav2", "MuJoCo", "Inverse Kinematics", "Path Planning"]
     },
     {
       title: "Perception / ML",
       items: [
         "OpenCV",
         "PyTorch",
-        "TensorFlow",
+        "YOLO",
+        "SAM2",
         "Sensor Fusion",
-        "Computer Vision",
-        "Reinforcement Learning"
+        "Computer Vision"
       ]
     },
     {
@@ -240,12 +269,12 @@ export default function HomePage() {
       items: ["ESP32", "Arduino", "Embedded C", "PCB Design", "I2C / SPI / UART / CAN"]
     },
     {
-      title: "Mechanical",
-      items: ["SolidWorks", "Fusion 360", "ANSYS", "3D Printing", "Rapid Prototyping"]
+      title: "XR / Product",
+      items: ["Meta Quest 3", "Unity", "C#", "Kotlin", "Jetpack Compose", "FastAPI"]
     },
     {
       title: "Tooling",
-      items: ["Python", "C++", "Linux", "Git", "Docker", "CMake"]
+      items: ["Python", "C++", "MATLAB", "Linux", "Git", "Docker", "CMake", "3D Printing"]
     }
   ];
 
@@ -262,8 +291,8 @@ export default function HomePage() {
           <Reveal className="rev" delay={80}>
             <p className="position">
               Robotics engineer working across <em>perception</em>,{" "}
-              <em>embedded systems</em>, and <em>autonomy</em> - turning ideas
-              into working prototypes.
+              <em>embedded systems</em>, and <em>human-in-the-loop robotics</em>{" "}
+              - turning ideas into working prototypes.
             </p>
           </Reveal>
           <Reveal className="rev" delay={120}>
@@ -365,7 +394,7 @@ export default function HomePage() {
 
           <Reveal className="rev" delay={40}>
             <p className="contact-line">
-              Looking for robotics, perception, or embedded roles -{" "}
+              Looking for robotics, perception, embedded, or product-development roles -{" "}
               <a href={`mailto:${data.frontmatter.email}`}>let&apos;s talk</a>.
             </p>
           </Reveal>
